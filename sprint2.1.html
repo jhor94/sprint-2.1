@@ -579,20 +579,63 @@
 <h2>Nivell 3</h2>
 <summary>Exercici 6</summary>
 <p>Every / Some: Usa every i some per a determinar si tots o alguns dels elements de l'array [11, 12, 13, 14] són majors que 10, respectivament </p>
+<button onclick="mostrarResultado()"> Mostrar Resultado </button>
 
 <script>
-    /*function mostrarResultado() {
+
+    function mostrarResultado() {
         const conjuntoArray = [11, 12, 13, 14];
 
-        const mayoresNumeros = (element)element.length > 10
+        function esMayor(element,index,array){
+            return element > 10;
+        }
 
-        console.log(conjuntoArray.every(mayoresNumeros));
-        console.log(multiplicacion);
-        console.log(totales);
+        console.log(conjuntoArray.every(esMayor));
     }  
-*/
+</script>
+
+<h1>Bloc 1.6: Array loops</h1>
+<h2>Nivell 1</h2>
+<summary>Exercici 1</summary>
+<p>forEach: Teniu una array de noms. Utilitza forEach per a imprimir cada nom a la consola: let noms = ['Anna', 'Bernat', 'Clara']</p>
+
+<button onclick="mostrarResultado()"> Mostrar forEach </button>
+
+<script>
+    function mostrarResultado(){
+        let noms = ['Anna', 'Bernat', 'Clara'];
+
+        noms.forEach((element)=> console.log(element));
+    }
+
+</script>
+
+<summary>Exercici 2</summary>
+<p>for-of: Teniu una array de noms. Utilitza un bucle for-of per a imprimir cada nom a la consola: let noms = ['Anna', 'Bernat', 'Clara'];</p>
+
+<button onclick="mostrarResultado()"> Mostrar for-of </button>
+
+<script>
+    function mostrarResultado(){
+        let noms = ['Anna', 'Bernat', 'Clara'];
+
+        for(let value of noms){
+            console.log(value)
+        }
+    }
+</script>
+
+<summary>Exercici 3</summary>
+<p>filter: Teniu una array de números. Utilitza filter per a crear una nova array que només contingui els números parells. let numeros = [1, 2, 3, 4, 5, 6];</p>
+
+<button onclick="mostrarResultado()"> Mostrar filter </button>
+
+<script>
+    function mostrarResultado(){
+        let numeros = [1, 2, 3, 4, 5, 6];
 
 
+    }
 </script>
 
 </body>
