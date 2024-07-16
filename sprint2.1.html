@@ -705,8 +705,6 @@ function mostrarResultado(){
         resolve((console.log("Hola mundo")));
     },2000)
 })
-
-
 }
 </script>
 
@@ -764,6 +762,28 @@ function mostrarResultado(){
 }
 </script>
 
+<summary>Exercici 4</summary>
+<p>Ús de async/await: Escriu una funció asíncrona que utilitzi la funció await per a esperar el resultat de la promesa creada a l'exercici 1, i que després imprimeixi aquest resultat a la consola.</p>
+
+<button onclick="mostrarResultado()"> Mostrar Promise con reject </button>
+
+<script>
+
+function mostrarResultado(){
+    const saludos = new Promise((resolve,reject)=>{
+        console.log("cargando saludo...");
+    setTimeout(()=>{
+        resolve((console.log("Hola mundo")));
+    },2000)
+})
+
+    async function getSaludo(){
+        let miSaludo = await saludos;
+    }
+
+    getSaludo();
+}
+</script>
 
 </body>
 
