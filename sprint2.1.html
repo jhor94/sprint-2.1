@@ -632,11 +632,138 @@
 
 <script>
     function mostrarResultado(){
-        let numeros = [1, 2, 3, 4, 5, 6];
+        let numeros = [1, 2, 3, 4, 5, 6]
+    }
+</script>
 
+<h2>Nivell 2</h2>
+<summary>Exercici 4</summary>
+<p>for-in: Teniu un objecte amb parells clau-valor: let obj = { nom: Ona, edat: 25, ciutat: 'Barcelona' }; Utilitza un bucle for-in per a imprimir a la consola cada clau i el seu valor corresponent.</p>
+
+<button onclick="mostrarResultado()"> Mostrar filter </button>
+
+<script>
+
+    function mostrarResultado(){
+        let obj1 = { nom: "Ona", edat: 25, ciutat: 'Barcelona' }
+
+        for(const property in obj1){console.log(`${property}: ${obj1[property]}`)}
 
     }
 </script>
+
+<summary>Exercici 5</summary>
+<p>for-of amb break: Teniu una array de números. Utilitza un bucle for-of per a imprimir a la consola els números fins a trobar el número 5, llavors atura el bucle: let numeros = [1, 2, 3, 4, 5, 6];</p>
+
+<button onclick="mostrarResultado()"> Mostrar filter </button>
+
+<script>
+
+    function mostrarResultado(){
+        let numerosArrays = [1, 2, 3, 4, 5, 6]
+
+       for(let  element of numerosArrays ){
+        console.log(element)
+        if(element == 5){
+            break;}
+       }
+
+    }
+</script>
+
+<h2>Nivel 3</h2>
+<summary>Exercici 6</summary>
+<p>for-of amb index: Utilitza un bucle for-of per a imprimir a la consola cada element de l'array i la seva posició (index): let noms = ['Anna', 'Bernat', 'Clara']</p>
+
+<button onclick="mostrarResultado()"> Mostrar for of index </button>
+
+<script>
+
+    function mostrarResultado(){
+        let noms1 = ['Anna', 'Bernat', 'Clara']
+        let i = ""
+
+        for(let [index,nom] of noms1.entries()){
+            console.log(index,nom);
+        }
+    }
+</script>
+
+<h1>Bloc 1.7: Promises & Async/Await</h1>
+
+<h2>Nivell 1</h2>
+<summary>Exercici 1</summary>
+<p>Creació d'una Promesa: Crea una promesa que es resolgui després de 2 segons i que retorni la cadena de text 'Hola, món'.</p>
+
+<button onclick="mostrarResultado()"> Mostrar Promise </button>
+
+<script>
+
+function mostrarResultado(){
+    const Saludo = new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        resolve((console.log("Hola mundo")));
+    },2000)
+})
+
+
+}
+</script>
+
+<summary>Exercici 2</summary>
+<p>Utilització d'una Promesa: Utilitza la promesa creada en l'exercici anterior. Crea un .then que imprimeixi el resultat a la consola.</p>
+
+<button onclick="mostrarResultado()"> Mostrar Promise con then </button>
+
+<script>
+
+function mostrarResultado(){
+
+
+const miPromesa2 = new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        resolve();
+    },2000)
+})
+
+miPromesa2.then(() => console.log("Hola, mundo"));
+
+}
+</script>
+
+<summary>Exercici 3</summary>
+<p>Promesa amb reject: Crea una promesa que es resolgui després de 2 segons si l'input és igual a 'Hola', i que la rebutgi si l'input és qualsevol altra cosa.</p>
+
+<p>Escribe hola: <input type="text" id="palabra1"></p>
+
+<button onclick="mostrarResultado()"> Mostrar Promise con reject </button>
+
+<script>
+
+function mostrarResultado(){
+
+    let palabraUser = document.getElementById("palabra1").value
+    function saludarPalabra(palabraUser){
+        return new Promise((resolve,reject)=>{
+            if(palabraUser =='hola'){
+                resolve("Saludo correcto");
+            } else {
+                reject("No estas saludando");
+            }
+        },2000)
+    }
+
+    saludarPalabra(palabraUser).then((message)=> {
+        console.log(message)
+    })
+
+    saludarPalabra(palabraUser).catch(()=> {
+        console.error()
+    })
+
+}
+</script>
+
 
 </body>
 
