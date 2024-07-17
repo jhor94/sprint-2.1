@@ -8,783 +8,975 @@
 </head>
 
 <body>
-    <h1>Bloc 1.1: Arrow Function</h1>
-    <h2>Nivell 1</h2>
-    <summary>Exercici 1</summary>
-    <p>Conversió de funcions: Tens una funció add que accepta dos paràmetres i retorna la seva suma. Converteix-la en
-        una funció de fletxa. Per exemple: function add(a, b) {return a + b;}.</p>
+    <div style="text-align: center; background-color: rgb(203, 249, 249); ">
 
-    <p>Introduzca un numero <input id="numero1" type="number"></p>
-    <p>Introduzca un numero <input id="numero2" type="number"></p>
-    <button onclick="mostrarResultado()"> Calcula la suma</button>
-    <p><span id="respuestaSuma"></span></p>
+        <h1>Bloc 1.1: Arrow Function</h1>
+        <h2>Nivell 1</h2>
+        <details>
+            <summary>Exercici 1</summary>
+            <p>Conversió de funcions: Tens una funció add que accepta dos paràmetres i retorna la seva suma.
+                Converteix-la
+                en
+                una funció de fletxa. Per exemple: function add(a, b) {return a + b;}.</p>
 
-    <script>
-        const add = (a, b) => a + b;
+            <p>Introduzca un numero <input id="numero1" type="number"></p>
+            <p>Introduzca un numero <input id="numero2" type="number"></p>
+            <button onclick="mostrarResultado()"> Calcula la suma</button>
+            <p><span id="respuestaSuma"></span></p>
 
-        function mostrarResultado() {
+            <script>
+                const add = (a, b) => a + b;
 
-            let num1 = document.getElementById("numero1").value
-            let num2 = document.getElementById("numero2").value
+                function mostrarResultado() {
 
-            const resultado = add(num1, num2);
+                    let num1 = document.getElementById("numero1").value
+                    let num2 = document.getElementById("numero2").value
 
-            document.getElementById("respuestaSuma").innerHTML = resultado
-        }
-    </script>
+                    const resultado = add(num1, num2);
 
-    <summary>Exercici 2</summary>
-    <p>Funció de fletxa sense paràmetres: Crea una funció de fletxa anomenada randomNumber que no necessiti paràmetres i
-        que retorni un número aleatori entre 0 i 100.</p>
+                    document.getElementById("respuestaSuma").innerHTML = resultado
+                }
+            </script>
+        </details>
 
-    <button onclick="mostrarResultado()"> Ver número Random</button>
-    <p><span id="respuestaRandom"></span></p>
 
-    <script>
+        <details>
+            <summary>Exercici 2</summary>
+            <p>Funció de fletxa sense paràmetres: Crea una funció de fletxa anomenada randomNumber que no necessiti
+                paràmetres i
+                que retorni un número aleatori entre 0 i 100.</p>
 
-        let randomNumero = () => (Math.floor(Math.random() * 101)); //funcion flecha se pone *101 para limitar el numero al 100
+            <button onclick="mostrarResultado()"> Ver número Random</button>
+            <p><span id="respuestaRandom"></span></p>
 
-        function mostrarResultado() {
+            <script>
 
-            let resultado = randomNumero();
+                let randomNumero = () => (Math.floor(Math.random() * 101)); //funcion flecha se pone *101 para limitar el numero al 100
 
-            document.getElementById("respuestaRandom").innerHTML = resultado
-        }
+                function mostrarResultado() {
 
-    </script>
+                    let resultado = randomNumero();
 
-    <summary>Exercici 3</summary>
-    <p>Ús de 'this' en les funcions de fletxa: Crea una classe person que tingui una propietat name i una funció greet
-        que utilitzi una funció de fletxa. La funció ha d'imprimir una salutació que inclogui el nom de la persona. Per
-        exemple: console.log(Hola, ${this.name});.</p>
+                    document.getElementById("respuestaRandom").innerHTML = resultado
+                }
 
-    <p>Introduzca su nombre <input type="text" name="" id="nombreUsuario"></p>
+            </script>
 
-    <button onclick="mostrarResultado()"> Ver resultado</button>
-    <p><span id="respuestaNombre"></span></p>
+        </details>
+        <details>
 
-    <Script>
+            <summary>Exercici 3</summary>
+            <p>Ús de 'this' en les funcions de fletxa: Crea una classe person que tingui una propietat name i una funció
+                greet
+                que utilitzi una funció de fletxa. La funció ha d'imprimir una salutació que inclogui el nom de la
+                persona.
+                Per
+                exemple: console.log(Hola, ${this.name});.</p>
 
-        class Person { // declaramos la clase con el nombre que queremos que reconoza dentro de clase
-            constructor(name) {
-                this.name = name
+            <p>Introduzca su nombre <input type="text" name="" id="nombreUsuario"></p>
+
+            <button onclick="mostrarResultado()"> Ver resultado</button>
+            <p><span id="respuestaNombre"></span></p>
+
+            <Script>
+
+                class Person { // declaramos la clase con el nombre que queremos que reconoza dentro de clase
+                    constructor(name) {
+                        this.name = name
+                    }
+
+
+                    greet = () => { //hacemos la funcion flecha para que imprima el mensaje en console.log
+                        console.log(`Hola ${this.name}`)
+                    }
+                }
+
+                function mostrarResultado() {
+                    let pedirNombre = document.getElementById("nombreUsuario").value
+                    let nombrePersona = new Person(pedirNombre)
+                    nombrePersona.greet()// para que me imprima el resultado en console.log
+                }
+            </Script>
+        </details>
+
+        <h2>Nivell 2 </h2>
+        <details>
+        <summary>Exercici 4</summary>
+        <p>Funció de fletxa dins d'un loop: Crea una funció anomenada printNumbers que accepti un array de números i
+            utilitzi un loop for per imprimir cada número a la consola utilitzant una funció de fletxa.</p>
+
+        <button onclick="mostrarResultado()"> Ver resultado</button>
+        <p><span id="respuestaNumeros"></span></p>
+
+        <Script>
+
+            function printNumbers(numbers) { // creo la funcion para iterar los numeros de la array y que se muestren dentro del console.log
+
+                for (let i = 0; i < numbers.length; i++) { // realizo el bucle for para hacer la iteracion de numeros y recorra toda la array con la condicion que sea el limite la longitud de la array.
+                    let numeroimpreso = (num) => console.log(num);
+                    numeroimpreso(numbers[i]);
+                }
             }
 
-
-            greet = () => { //hacemos la funcion flecha para que imprima el mensaje en console.log
-                console.log(`Hola ${this.name}`)
+            function mostrarResultado() { // creo otra funcion con la array de numeros para hacer referir la funcion priunt y ejecutarlo con boton.
+                let numerosArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                let mensaje = printNumbers(numerosArray)
             }
-        }
 
-        function mostrarResultado() {
-            let pedirNombre = document.getElementById("nombreUsuario").value
-            let nombrePersona = new Person(pedirNombre)
-            nombrePersona.greet()// para que me imprima el resultado en console.log
-        }
-    </Script>
+        </Script>
+        </details>
 
-    <h2>Nivell 2 </h2>
-    <summary>Exercici 4</summary>
-    <p>Funció de fletxa dins d'un loop: Crea una funció anomenada printNumbers que accepti un array de números i
-        utilitzi un loop for per imprimir cada número a la consola utilitzant una funció de fletxa.</p>
+        <h2>Nivell 3 </h2>
+        <details>
+        <summary>Exercici 5</summary>
+        <p>Funció de fletxa amb 'setTimeout': Crea una funció de fletxa que imprimeixi un missatge a la consola després
+            d'esperar 3 segons.</p>
 
-    <button onclick="mostrarResultado()"> Ver resultado</button>
-    <p><span id="respuestaNumeros"></span></p>
+        <button onclick="mostrarResultado()"> Ver resultado</button>
+        <p><span id="respuestaNumeros"></span></p>
 
-    <Script>
+        <Script>
 
-        function printNumbers(numbers) { // creo la funcion para iterar los numeros de la array y que se muestren dentro del console.log
+            function mostrarResultado() {
+                setTimeout(() => {
+                    console.log("Se ha retrasado 3 segundos.")
+                }, 3000);
 
-            for (let i = 0; i < numbers.length; i++) { // realizo el bucle for para hacer la iteracion de numeros y recorra toda la array con la condicion que sea el limite la longitud de la array.
-                let numeroimpreso = (num) => console.log(num);
-                numeroimpreso(numbers[i]);
             }
-        }
 
-        function mostrarResultado() { // creo otra funcion con la array de numeros para hacer referir la funcion priunt y ejecutarlo con boton.
-            let numerosArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-            let mensaje = printNumbers(numerosArray)
-        }
+        </Script>
+        </details>
 
-    </Script>
+        <h1>Bloc 1.2: Operador ternari</h1>
+        <h2>Nivell 1 </h2>
+        <details>
+        <summary>Exercici 1</summary>
+        <p>Operador ternari bàsic: Escriu una funció potConduir que accepti l'edat com a paràmetre i utilitzi l'operador
+            ternari per determinar si l'usuari pot conduir. Si l'edat és 18 o més, ha de retornar 'Pots conduir'. Si no,
+            ha
+            de retornar 'No pots conduir'.</p>
 
-    <h2>Nivell 3 </h2>
-    <summary>Exercici 5</summary>
-    <p>Funció de fletxa amb 'setTimeout': Crea una funció de fletxa que imprimeixi un missatge a la consola després
-        d'esperar 3 segons.</p>
+        <p>Introduce su edad: <input type="text" name="" id="edad"></p>
 
-    <button onclick="mostrarResultado()"> Ver resultado</button>
-    <p><span id="respuestaNumeros"></span></p>
+        <button onclick="permisoConducir()"> Verifica si puedes conducir</button>
+        <p><span id="respuestaEdad"></span></p>
 
-    <Script>
+        <Script>
+            function permisoConducir() {
+                let edadUsuario = document.getElementById("edad").value
 
-        function mostrarResultado() {
-            setTimeout(() => {
-                console.log("Se ha retrasado 3 segundos.")
-            }, 3000);
+                let resultado = edadUsuario >= 18 ? "Eres mayor de edad puedes conducir" : "Eres menor de edad, no puedes conducir"
 
-        }
+                document.getElementById("respuestaEdad").innerHTML = resultado
 
-    </Script>
-
-    <h1>Bloc 1.2: Operador ternari</h1>
-    <h2>Nivell 1 </h2>
-    <summary>Exercici 1</summary>
-    <p>Operador ternari bàsic: Escriu una funció potConduir que accepti l'edat com a paràmetre i utilitzi l'operador
-        ternari per determinar si l'usuari pot conduir. Si l'edat és 18 o més, ha de retornar 'Pots conduir'. Si no, ha
-        de retornar 'No pots conduir'.</p>
-
-    <p>Introduce su edad: <input type="text" name="" id="edad"></p>
-
-    <button onclick="permisoConducir()"> Verifica si puedes conducir</button>
-    <p><span id="respuestaEdad"></span></p>
-
-    <Script>
-        function permisoConducir() {
-            let edadUsuario = document.getElementById("edad").value
-
-            let resultado = edadUsuario >= 18 ? "Eres mayor de edad puedes conducir" : "Eres menor de edad, no puedes conducir"
-
-            document.getElementById("respuestaEdad").innerHTML = resultado
-
-        }
-    </Script>
-
-    <summary>Exercici 2</summary>
-    <p>Ús amb operadors de comparació: Escriu una expressió que utilitzi l'operador ternari per determinar quin dels dos
-        nombres donats (num1 i num2) és més gran. Si num1 és més gran, retorna 'num1 és més gran'. Si no, retorna 'num2
-        és més gran'.</p>
-
-    <p>Introduce el numero1 <input type="text" name="" id="num1"></p>
-    <p>Introduce el numero2 <input type="text" name="" id="num2"></p>
-
-    <button onclick="mostrarResultado()"> Respuesta</button>
-    <p><span id="respuestaComparacion"></span></p>
-
-    <Script>
-        function mostrarResultado() {
-            let numero1 = document.getElementById("num1").value
-            let numero2 = document.getElementById("num2").value
-
-            let resultado = numero1 > numero2 ? `${numero1} es mayor que ${numero2} ` : `${num2} es mayor que ${num1} `
-
-            document.getElementById("respuestaComparacion").innerHTML = resultado
-        }
-
-    </Script>
-
-    <h2>Nivell 2</h2>
-    <summary>Exercici 3</summary>
-    <p>Ús enllaçat d'operadors ternaris: Escriu una expressió que utilitzi enllaços d'operadors ternaris per determinar
-        si un número és positiu, negatiu o zero. Operador ternari amb funcions: Crea una funció trobarMaxim que accepti
-        tres paràmetres (a, b, c) i utilitzi l'operador ternari per determinar el valor màxim. </p>
-
-    <p>Introduce el numero 1: <input type="text" id="ternario1"></p>
-    <p>Introduce el numero 2: <input type="text" id="ternario2"></p>
-    <p>Introduce el numero 3: <input type="text" id="ternario3"></p>
-
-    <button onclick="mostrarResultado()"> Respuesta</button>
-    <p><span id="respuestaTernario"></span></p>
-
-    <script>
-        function trobarMaxim(numero) {
-            return numero == 0 ? " El numero es igual a 0" : numero > 0 ? " El numero es positivo" : " El numero es negativo"
-        }
-
-        function mostrarResultado() {
-            let numero1 = Number(document.getElementById("ternario1").value)
-            let numero2 = Number(document.getElementById("ternario2").value)
-            let numero3 = Number(document.getElementById("ternario3").value)
-
-            console.log(numero1 + trobarMaxim(numero1))
-            console.log(numero2 + trobarMaxim(numero2))
-            console.log(numero3 + trobarMaxim(numero3))
-        }
-
-    </script>
-    <h2>Nivell 3</h2>
-    <summary>Exercici 4</summary>
-    <p>Operador ternari dins un bucle: Escriu una funció parOImpar que accepti un array de números i utilitzi un bucle
-        per a recórrer l'array. Dins del bucle, utilitza l'operador ternari per a determinar si cada número és parell o
-        imparell. </p>
-
-    <button onclick="parOimpar()"> Respuesta</button>
-    <p><span id="respuestaTernario"></span></p>
-
-    <script>
-        function parOimpar() {
-            let conjuntoNumeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-            for (let i = 0; i < conjuntoNumeros.length; i++) {
-                let numeroArray = conjuntoNumeros[i];
-                let mensaje = numeroArray % 2 == 0 ? `Es numero par` : `Es numero impar`
-                console.log(mensaje)
             }
-        }
-    </script>
+        </Script>
+        </details>
 
+        <details>
+        <summary>Exercici 2</summary>
+        <p>Ús amb operadors de comparació: Escriu una expressió que utilitzi l'operador ternari per determinar quin dels
+            dos
+            nombres donats (num1 i num2) és més gran. Si num1 és més gran, retorna 'num1 és més gran'. Si no, retorna
+            'num2
+            és més gran'.</p>
 
-    <h1>Bloc 1.3: Callbacks</h1>
-    <h2>Nivell 1</h2>
-    <summary>Exercici 1 </summary>
-    <p>Callback bàsic: Escriu una funció anomenada processar que accepti dos paràmetres: un nombre i una funció de
-        callback. La funció processar ha d'invocar la funció de callback, passant el nombre com a paràmetre.</p>
-    <button onclick="ejecturarCallback()">Ejecutar funcion</button>
+        <p>Introduce el numero1 <input type="text" name="" id="num1"></p>
+        <p>Introduce el numero2 <input type="text" name="" id="num2"></p>
 
-    <script>
-        //Una función de callback es una función que se pasa a otra función como un argumento, que luego se invoca dentro de la función externa para completar algún tipo de rutina o acción.
+        <button onclick="mostrarResultado()"> Respuesta</button>
+        <p><span id="respuestaComparacion"></span></p>
 
-        function saludar(nombre) {
-            alert("Hola " + nombre);
-        }
+        <Script>
+            function mostrarResultado() {
+                let numero1 = document.getElementById("num1").value
+                let numero2 = document.getElementById("num2").value
 
-        function procesar(callback) {
-            let nombre = prompt("Por favor ingresa tu nombre.");
-            callback(nombre);
-        }
-        function ejecturarCallback() { // pongo esta funcion para que no cargue directamente
-            procesar(saludar);
-        }
-    </script>
+                let resultado = numero1 > numero2 ? `${numero1} es mayor que ${numero2} ` : `${num2} es mayor que ${num1} `
 
-
-    <summary>Exercici 2 </summary>
-    <p>Callbacks amb operacions matemàtiques: Escriu una funció calculadora que accepti tres paràmetres: dos nombres i
-        una funció de callback. La funció calculadora ha d'invocar la funció de callback amb els dos nombres com a
-        paràmetres. Després, crida calculadora amb una funció que faci la suma dels dos nombres.</p>
-
-    <button onclick="ejecturarCallback()">Ejecutar funcion</button>
-    <p><span id="resultadoSuma"></span></p>
-
-    <script>
-        //Una función de callback es una función que se pasa a otra función como un argumento, que luego se invoca dentro de la función externa para completar algún tipo de rutina o acción.
-
-        function hazSuma(num1, num2) {
-            let resultadoCallback = num1 + num2;
-            document.getElementById("resultadoSuma").innerHTML = resultadoCallback
-        }
-
-        function calculadora(callback) {
-            let numeroSuma1 = Number(prompt("Por favor ingresa un numero"));
-            let numeroSuma2 = Number(prompt("Por favor ingresa otro numero"));
-            callback(numeroSuma1, numeroSuma2);
-
-        }
-        function ejecturarCallback() { // pongo esta funcion para que no cargue directamente
-            calculadora(hazSuma);
-        }
-
-    </script>
-    <h2>Nivell 2</h2>
-    <summary>Exercici 3 </summary>
-    <p>Ús de callbacks en funcions asíncrones: Escriu una funció esperarISaludar que accepti dos paràmetres: un nom i
-        una funció de callback. La funció ha d'esperar 2 segons i llavors invocar la funció de callback, passant el nom
-        com a paràmetre.</p>
-
-    <button onclick="ejecturarCallback()">Ejecutar funcion</button>
-    <p><span id="resultadoSuma"></span></p>
-
-    <script>
-        //Una función de callback es una función que se pasa a otra función como un argumento, que luego se invoca dentro de la función externa para completar algún tipo de rutina o acción.
-
-        function esperarEjecucion(nombre) {
-            alert("Hola " + nombre);
-        }
-
-        function esperarSaludo(callback) {
-            let nombreUsuario1 = prompt("Por favor ingresa su nombre");
-            callback(nombreUsuario1);
-
-        }
-        function ejecturarCallback() { // pongo esta funcion para que no cargue directamente
-            setTimeout(function () { esperarSaludo(esperarEjecucion) }, 2000);
-        }
-
-    </script>
-
-    <summary>Exercici 4 </summary>
-    <p>Callbacks amb arrays: Escriu una funció processarElements que accepti dos paràmetres: un array i una funció de
-        callback. La funció processarElements ha d'invocar la funció de callback per cada element de l'array.</p>
-
-    <button onclick="ejecturarCallback()">Ejecutar funcion</button>
-    <p><span id="resultadoSuma"></span></p>
-
-    <script>
-        //Una función de callback es una función que se pasa a otra función como un argumento, que luego se invoca dentro de la función externa para completar algún tipo de rutina o acción.
-
-        function procesarArray(array, callback) {
-            for (let i = 0; i < arrayNumeros.length; i++) {
-                callback(array[i], array)
+                document.getElementById("respuestaComparacion").innerHTML = resultado
             }
-        }
 
-        function procesarElements(callback) {
-            let arrayNumeros = [0, 1, 2, 3, 4, 5, 6]
-            procesarArray(arrayNumeros, callback);
-
-        }
-
-        function imprimirElementos() {
-            console.log(`Los elementos en la posicion ${index} es el: ${element}`)
-        }
-
-        function ejecturarCallback() {
-            procesarElements(imprimirElementos);
-        }
-
-    </script>
-
-    <h2>Nivell 3</h2>
-    <summary>Exercici 5 </summary>
-    <p>Escriu una funció processarCadena que accepti dos paràmetres: una cadena de caràcters i una funció de callback.
-        La funció processarCadena ha de convertir la cadena a majúscules i llavors invocar la funció de callback amb la
-        cadena transformada.</p>
-
-    <button onclick="ejecturarCallback()">Ejecutar palabra</button>
-    <p><span id="resultadoPalabra"></span></p>
-
-    <script>
-        //Una función de callback es una función que se pasa a otra función como un argumento, que luego se invoca dentro de la función externa para completar algún tipo de rutina o acción.
-
-        function cadenaTexto(palabras) {
-            let mensaje = palabras.toUpperCase()
-            document.getElementById("resultadoPalabra").innerHTML = mensaje
-        }
-
-        function procesarCadena(callback) {
-            let palabraUsuario = prompt("Introduce la palabra");
-            callback(palabraUsuario);
-        }
-        function ejecturarCallback() { // pongo esta funcion para que no cargue directamente
-            procesarCadena(cadenaTexto);
-        }
-    </script>
-
-    <h1>Bloc 1.4: Rest & Spread operators</h1>
-    <h2>Nivell 1</h2>
-    <summary>Exercici 1</summary>
-    <p>Operador Spread en Arrays: Crea dues arrays, array1 i array2. Utilitza l'operador spread per a crear una tercera
-        array que contingui tots els elements de array1 i array2.</p>
-
-    <button onclick="mostrarResultado()"> Mostrar Comida</button>
-    <script>
-
-        function mostrarResultado() {
-            frutas = ["coco", "piña", "manzana"]
-            vegetales = ["tomates", "patatas", "brocoli"]
-
-            let comida = [...frutas, ...vegetales]
-            console.log(comida)
-
-        }
-    </script>
+        </Script>
+        </details>
 
 
-    <summary>Exercici 2</summary>
-    <p>Operador Rest en Funcions: Crea una funció 'suma' que utilitzi l'operador rest per a acceptar un nombre
-        indeterminat d'arguments i retornar la seva suma.</p>
+        <h2>Nivell 2</h2>
+        <details>
+        <summary>Exercici 3</summary>
+        <p>Ús enllaçat d'operadors ternaris: Escriu una expressió que utilitzi enllaços d'operadors ternaris per
+            determinar
+            si un número és positiu, negatiu o zero. Operador ternari amb funcions: Crea una funció trobarMaxim que
+            accepti
+            tres paràmetres (a, b, c) i utilitzi l'operador ternari per determinar el valor màxim. </p>
 
-    <button onclick="mostrarResultado()"> Mostrar Suma Rest</button>
+        <p>Introduce el numero 1: <input type="text" id="ternario1"></p>
+        <p>Introduce el numero 2: <input type="text" id="ternario2"></p>
+        <p>Introduce el numero 3: <input type="text" id="ternario3"></p>
+
+        <button onclick="mostrarResultado()"> Respuesta</button>
+        <p><span id="respuestaTernario"></span></p>
+
+        <script>
+            function trobarMaxim(numero) {
+                return numero == 0 ? " El numero es igual a 0" : numero > 0 ? " El numero es positivo" : " El numero es negativo"
+            }
+
+            function mostrarResultado() {
+                let numero1 = Number(document.getElementById("ternario1").value)
+                let numero2 = Number(document.getElementById("ternario2").value)
+                let numero3 = Number(document.getElementById("ternario3").value)
+
+                console.log(numero1 + trobarMaxim(numero1))
+                console.log(numero2 + trobarMaxim(numero2))
+                console.log(numero3 + trobarMaxim(numero3))
+            }
+
+        </script>
+        </details>
+
+        <h2>Nivell 3</h2>
+        <details>
+        <summary>Exercici 4</summary>
+        <p>Operador ternari dins un bucle: Escriu una funció parOImpar que accepti un array de números i utilitzi un
+            bucle
+            per a recórrer l'array. Dins del bucle, utilitza l'operador ternari per a determinar si cada número és
+            parell o
+            imparell. </p>
+
+        <button onclick="parOimpar()"> Respuesta</button>
+        <p><span id="respuestaTernario"></span></p>
+
+        <script>
+            function parOimpar() {
+                let conjuntoNumeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+                for (let i = 0; i < conjuntoNumeros.length; i++) {
+                    let numeroArray = conjuntoNumeros[i];
+                    let mensaje = numeroArray % 2 == 0 ? `Es numero par` : `Es numero impar`
+                    console.log(mensaje)
+                }
+            }
+        </script>
+        </details>
 
 
-    <script>
-        // se utiliza para agregar paramentros dentro de una variable o dentro de una funcion
+        <h1>Bloc 1.3: Callbacks</h1>
+        <h2>Nivell 1</h2>
+        <details>
+        <summary>Exercici 1 </summary>
+        <p>Callback bàsic: Escriu una funció anomenada processar que accepti dos paràmetres: un nombre i una funció de
+            callback. La funció processar ha d'invocar la funció de callback, passant el nombre com a paràmetre.</p>
+        <button onclick="ejecturarCallback()">Ejecutar funcion</button>
 
-        function mostrarResultado() {
-            function sumar(a, b, ...c) {
-                let resultado = a + b;
+        <script>
+            //Una función de callback es una función que se pasa a otra función como un argumento, que luego se invoca dentro de la función externa para completar algún tipo de rutina o acción.
 
-                c.forEach(function (num) {
-                    resultado += num
+            function saludar(nombre) {
+                alert("Hola " + nombre);
+            }
+
+            function procesar(callback) {
+                let nombre = prompt("Por favor ingresa tu nombre.");
+                callback(nombre);
+            }
+            function ejecturarCallback() { // pongo esta funcion para que no cargue directamente
+                procesar(saludar);
+            }
+        </script>
+        </details>
+
+        <details>
+        <summary>Exercici 2 </summary>
+        <p>Callbacks amb operacions matemàtiques: Escriu una funció calculadora que accepti tres paràmetres: dos nombres
+            i
+            una funció de callback. La funció calculadora ha d'invocar la funció de callback amb els dos nombres com a
+            paràmetres. Després, crida calculadora amb una funció que faci la suma dels dos nombres.</p>
+
+        <button onclick="ejecturarCallback()">Ejecutar funcion</button>
+        <p><span id="resultadoSuma"></span></p>
+
+        <script>
+            //Una función de callback es una función que se pasa a otra función como un argumento, que luego se invoca dentro de la función externa para completar algún tipo de rutina o acción.
+
+            function hazSuma(num1, num2) {
+                let resultadoCallback = num1 + num2;
+                document.getElementById("resultadoSuma").innerHTML = resultadoCallback
+            }
+
+            function calculadora(callback) {
+                let numeroSuma1 = Number(prompt("Por favor ingresa un numero"));
+                let numeroSuma2 = Number(prompt("Por favor ingresa otro numero"));
+                callback(numeroSuma1, numeroSuma2);
+
+            }
+            function ejecturarCallback() { // pongo esta funcion para que no cargue directamente
+                calculadora(hazSuma);
+            }
+
+        </script>
+        </details>
+
+        <h2>Nivell 2</h2>
+        <details>
+        <summary>Exercici 3 </summary>
+        <p>Ús de callbacks en funcions asíncrones: Escriu una funció esperarISaludar que accepti dos paràmetres: un nom
+            i
+            una funció de callback. La funció ha d'esperar 2 segons i llavors invocar la funció de callback, passant el
+            nom
+            com a paràmetre.</p>
+
+        <button onclick="ejecturarCallback()">Ejecutar funcion</button>
+        <p><span id="resultadoSuma"></span></p>
+
+        <script>
+            //Una función de callback es una función que se pasa a otra función como un argumento, que luego se invoca dentro de la función externa para completar algún tipo de rutina o acción.
+
+            function esperarEjecucion(nombre) {
+                alert("Hola " + nombre);
+            }
+
+            function esperarSaludo(callback) {
+                let nombreUsuario1 = prompt("Por favor ingresa su nombre");
+                callback(nombreUsuario1);
+
+            }
+            function ejecturarCallback() { // pongo esta funcion para que no cargue directamente
+                setTimeout(function () { esperarSaludo(esperarEjecucion) }, 2000);
+            }
+
+        </script>
+        </details>
+
+        <details>
+        <summary>Exercici 4 </summary>
+        <p>Callbacks amb arrays: Escriu una funció processarElements que accepti dos paràmetres: un array i una funció
+            de
+            callback. La funció processarElements ha d'invocar la funció de callback per cada element de l'array.</p>
+
+        <button onclick="ejecturarCallback()">Ejecutar funcion</button>
+        <p><span id="resultadoSuma"></span></p>
+
+        <script>
+            //Una función de callback es una función que se pasa a otra función como un argumento, que luego se invoca dentro de la función externa para completar algún tipo de rutina o acción.
+
+            function procesarArray(array, callback) {
+                for (let i = 0; i < arrayNumeros.length; i++) {
+                    callback(array[i], array)
+                }
+            }
+
+            function procesarElements(callback) {
+                let arrayNumeros = [0, 1, 2, 3, 4, 5, 6]
+                procesarArray(arrayNumeros, callback);
+
+            }
+
+            function imprimirElementos() {
+                console.log(`Los elementos en la posicion ${index} es el: ${element}`)
+            }
+
+            function ejecturarCallback() {
+                procesarElements(imprimirElementos);
+            }
+
+        </script>
+        </details>
+
+        <h2>Nivell 3</h2>
+        <details>
+        <summary>Exercici 5 </summary>
+        <p>Escriu una funció processarCadena que accepti dos paràmetres: una cadena de caràcters i una funció de
+            callback.
+            La funció processarCadena ha de convertir la cadena a majúscules i llavors invocar la funció de callback amb
+            la
+            cadena transformada.</p>
+
+        <button onclick="ejecturarCallback()">Ejecutar palabra</button>
+        <p><span id="resultadoPalabra"></span></p>
+
+        <script>
+            //Una función de callback es una función que se pasa a otra función como un argumento, que luego se invoca dentro de la función externa para completar algún tipo de rutina o acción.
+
+            function cadenaTexto(palabras) {
+                let mensaje = palabras.toUpperCase()
+                document.getElementById("resultadoPalabra").innerHTML = mensaje
+            }
+
+            function procesarCadena(callback) {
+                let palabraUsuario = prompt("Introduce la palabra");
+                callback(palabraUsuario);
+            }
+            function ejecturarCallback() { // pongo esta funcion para que no cargue directamente
+                procesarCadena(cadenaTexto);
+            }
+        </script>
+        </details>
+
+        <h1>Bloc 1.4: Rest & Spread operators</h1>
+        <h2>Nivell 1</h2>
+        <details>
+        <summary>Exercici 1</summary>
+        <p>Operador Spread en Arrays: Crea dues arrays, array1 i array2. Utilitza l'operador spread per a crear una
+            tercera
+            array que contingui tots els elements de array1 i array2.</p>
+
+        <button onclick="mostrarResultado()"> Mostrar Comida</button>
+        <script>
+
+            function mostrarResultado() {
+                frutas = ["coco", "piña", "manzana"]
+                vegetales = ["tomates", "patatas", "brocoli"]
+
+                let comida = [...frutas, ...vegetales]
+                console.log(comida)
+
+            }
+        </script>
+        </details>
+
+
+        <details>
+        <summary>Exercici 2</summary>
+        <p>Operador Rest en Funcions: Crea una funció 'suma' que utilitzi l'operador rest per a acceptar un nombre
+            indeterminat d'arguments i retornar la seva suma.</p>
+
+        <button onclick="mostrarResultado()"> Mostrar Suma Rest</button>
+
+
+        <script>
+            // se utiliza para agregar paramentros dentro de una variable o dentro de una funcion
+
+            function mostrarResultado() {
+                function sumar(a, b, ...c) {
+                    let resultado = a + b;
+
+                    c.forEach(function (num) {
+                        resultado += num
+                    })
+                    return resultado;
+                }
+
+                console.log(sumar(1, 2, 3, 4));
+                console.log(sumar(1, 2, 3, 4, 5));
+                console.log(sumar(1, 2, 3, 4, 5, 6));
+                console.log(sumar(1, 2, 3, 4, 5, 6, 7));
+            }
+        </script>
+        </details>
+
+        <h2>Nivel 2</h2>
+        <details>
+        <summary>Exercici 3</summary>
+        <p>Copiant objectes amb Spread: Crea un objecte 'objecte1'. Després crea un segon objecte, 'objecte2', que sigui
+            una
+            còpia de 'objecte1' utilitzant l'operador spread. Canvia una propietat de 'objecte2' i comprova que
+            'objecte1'
+            no ha canviat.</p>
+
+        <button onclick="mostrarResultado()"> Mostrar Objetos</button>
+
+        <script>
+
+            function mostrarResultado() {
+                let objeto1 = { tipo: "camiseta", talla: "m" }
+                let objeto2 = { ...objeto1 }
+                objeto2.talla = "l"
+
+                console.log(objeto2)
+                console.log(objeto1)
+            }
+        </script>
+        </details>
+
+        <details>
+        <summary>Exercici 4</summary>
+        <p>Rest en Destructuring: Crea una array amb diversos elements. Utilitza destructuring i l'operador rest per a
+            assignar els primers dos elements a variables, i després assignar la resta dels elements a una tercera
+            variable.
+        </p>
+
+        <button onclick="mostrarResultado()"> Mostrar Destructuring</button>
+
+        <script>
+            function mostrarResultado() {
+                let colors = ["red", "blue", "black", "pink"]
+
+                let [firstColor, secondColor, ...extraColor] = colors;
+
+                console.log(firstColor);
+                console.log(secondColor);
+                console.log(extraColor);// muestra los elementos restantes del array
+            }
+        </script>
+        </details>
+
+        <h2>Nivell 3</h2>
+
+        <details>
+        <summary>Exercici 5</summary>
+        <p>Spread en Funcions: Crea una funció que accepti tres arguments. Després, crea una array amb tres elements i
+            crida
+            la funció utilitzant l'operador spread amb aquesta array.</p>
+
+        <button onclick="mostrarResultado()"> Mostrar Spreed funcion</button>
+
+        <script>
+            function mostrarResultado() {
+                let numero1 = [4, 5, 6]
+                const operacion = (a, b, c) => {
+                    return a + b + c;
+                };
+
+                console.log(operacion(...numero1));
+            }
+        </script>
+        </details>
+
+
+        <details>
+        <summary>Exercici 6</summary>
+        <p>Fusionant Objectes amb Spread: Crea dos objectes amb propietats diferents. Utilitza l'operador spread per a
+            fusionar aquests dos objectes en un de nou.</p>
+
+        <button onclick="mostrarResultado()"> Mostrar Spreed Objeto</button>
+
+        <script>
+            function mostrarResultado() {
+                let frutas1 = ["pera", "manzana", "piña"]
+                let vegetales1 = ["brocoli", "apio", "berenjena"]
+
+                const fusion = (...objects) => ({ ...objects });
+
+                let fusionComida = fusion(frutas1, vegetales1)
+
+                console.log(fusionComida)
+            }
+        </script>
+        </details>
+
+        <h1>Bloc 1.5: Rest & Spread operators</h1>
+        <h2>Nivell 1</h2>
+        <details>
+        <summary>Exercici 1</summary>
+        <p>Map: Teniu un array de números [1, 2, 3, 4]. Crea una nova array que contingui el quadrat de cada número.</p>
+
+        <button onclick="mostrarResultado()"> Mostrar Cuadrados </button>
+        <script>
+
+            function mostrarResultado() {
+                const numeroConjunto = [1, 2, 3, 4];
+
+                const cuadrados = numeroConjunto.map((num) => Math.sqrt(num));
+
+                console.log(cuadrados);
+            }
+        </script>
+        </details>
+
+        <details>
+        <summary>Exercici 2</summary>
+        <p>Filter: Teniu una array de números [1, 2, 3, 4]. Crea una nova array que només contingui els números parells.
+        </p>
+
+        <button onclick="mostrarResultado()"> Mostrar Pares </button>
+
+        <script>
+            function mostrarResultado() {
+                const numeroConjunto1 = [1, 2, 3, 4];
+
+                const pares = numeroConjunto1.filter(number => number % 2 == 0);
+
+                console.log(pares);
+            }
+        </script>
+        </details>
+
+        <details>
+        <summary>Exercici 3</summary>
+        <p>Find: Teniu una array de números [1, 10 , 8, 11]. Utilitza la funció find per a trobar el primer número que
+            és
+            major a 10.</p>
+
+        <button onclick="mostrarResultado()"> Mostrar Find </button>
+
+        <script>
+            function mostrarResultado() {
+                const numeroConjunto1 = [1, 10, 8, 11];
+
+                const encontrar = numeroConjunto1.find(element => element > 10);
+
+                console.log(encontrar);
+            }
+        </script>
+        </details>
+
+        <details>
+        <summary>Exercici 4</summary>
+        <p>Reduce: Teniu una array de números [13, 7, 8, 21]. Fes servir la funció reduce per a calcular la suma total
+            dels
+            números.</p>
+
+        <button onclick="mostrarResultado()"> Mostrar Reduce </button>
+
+        <script>
+            function mostrarResultado() {
+                const numeroConjunto2 = [13, 7, 8, 21];
+
+                const sumaTotal = numeroConjunto2.reduce((total, numero) => { return total + numero; }, 0);
+
+                console.log("Suma total: ", sumaTotal);
+            }
+        </script>
+        </details>
+
+        <h2>Nivell 2</h2>
+        <details>
+        <summary>Exercici 5</summary>
+        <p>Donat un array "[ 1, 3, 7, 10 ,15, 17, 11, 5, 8, 12, 9 ]", crea una funció en una sola línia que faci el
+            següent:
+        </p>
+        <ul>
+            <li>Filtra els nombres majors o iguals a 10.</li>
+            <li>Multiplica cada nombre filtrat per 2.</li>
+            <li>Calcula la suma dels nombres filtrats i multiplicats per 2.</li>
+            <li>La funció ha de retornar el resultat de la suma.</li>
+
+        </ul>
+
+        <button onclick="mostrarResultado()"> Mostrar Resultado </button>
+        <script>
+
+            function mostrarResultado() {
+                const numeroConjunto3 = [1, 3, 7, 10, 15, 17, 11, 5, 8, 12, 9];
+
+                const filtroNum = numeroConjunto3.filter(number => number >= 10);
+
+                const multiplicacion = filtroNum.map((num) => num * 2);
+
+                const totales = multiplicacion.reduce((total, numero) => { return (total + numero) * 2; }, 0);
+
+                console.log(filtroNum);
+                console.log(multiplicacion);
+                console.log(totales);
+            }    
+        </script>
+        </details>
+
+        <h2>Nivell 3</h2>
+        <details>
+        <summary>Exercici 6</summary>
+        <p>Every / Some: Usa every i some per a determinar si tots o alguns dels elements de l'array [11, 12, 13, 14]
+            són
+            majors que 10, respectivament </p>
+        <button onclick="mostrarResultado()"> Mostrar Resultado </button>
+
+        <script>
+
+            function mostrarResultado() {
+                const conjuntoArray = [11, 12, 13, 14];
+
+                function esMayor(element, index, array) {
+                    return element > 10;
+                }
+
+                console.log(conjuntoArray.every(esMayor));
+            }  
+        </script>
+        </details>
+
+        <h1>Bloc 1.6: Array loops</h1>
+        <h2>Nivell 1</h2>
+        <details>
+        <summary>Exercici 1</summary>
+        <p>forEach: Teniu una array de noms. Utilitza forEach per a imprimir cada nom a la consola: let noms = ['Anna',
+            'Bernat', 'Clara']</p>
+
+        <button onclick="mostrarResultado()"> Mostrar forEach </button>
+
+        <script>
+            function mostrarResultado() {
+                let noms = ['Anna', 'Bernat', 'Clara'];
+
+                noms.forEach((element) => console.log(element));
+            }
+
+        </script>
+        </details>
+
+        <details>
+        <summary>Exercici 2</summary>
+        <p>for-of: Teniu una array de noms. Utilitza un bucle for-of per a imprimir cada nom a la consola: let noms =
+            ['Anna', 'Bernat', 'Clara'];</p>
+
+        <button onclick="mostrarResultado()"> Mostrar for-of </button>
+
+        <script>
+            function mostrarResultado() {
+                let noms = ['Anna', 'Bernat', 'Clara'];
+
+                for (let value of noms) {
+                    console.log(value)
+                }
+            }
+        </script>
+        </details>
+
+        <details>
+        <summary>Exercici 3</summary>
+        <p>filter: Teniu una array de números. Utilitza filter per a crear una nova array que només contingui els
+            números
+            parells. let numeros = [1, 2, 3, 4, 5, 6];</p>
+
+        <button onclick="mostrarResultado()"> Mostrar filter </button>
+
+        <script>
+            function mostrarResultado() {
+                let numeros = [1, 2, 3, 4, 5, 6]
+
+                ////se repite ejercicio
+            }
+        </script>
+        </details>
+
+        <h2>Nivell 2</h2>
+        <details>
+        <summary>Exercici 4</summary>
+        <p>for-in: Teniu un objecte amb parells clau-valor: let obj = { nom: Ona, edat: 25, ciutat: 'Barcelona' };
+            Utilitza
+            un bucle for-in per a imprimir a la consola cada clau i el seu valor corresponent.</p>
+
+        <button onclick="mostrarResultado()"> Mostrar filter </button>
+
+        <script>
+
+            function mostrarResultado() {
+                let obj1 = { nom: "Ona", edat: 25, ciutat: 'Barcelona' }
+
+                for (const property in obj1) { console.log(`${property}: ${obj1[property]}`) }
+
+            }
+        </script>
+        </details>
+
+        <details>
+        <summary>Exercici 5</summary>
+        <p>for-of amb break: Teniu una array de números. Utilitza un bucle for-of per a imprimir a la consola els
+            números
+            fins a trobar el número 5, llavors atura el bucle: let numeros = [1, 2, 3, 4, 5, 6];</p>
+
+        <button onclick="mostrarResultado()"> Mostrar filter </button>
+
+        <script>
+
+            function mostrarResultado() {
+                let numerosArrays = [1, 2, 3, 4, 5, 6]
+
+                for (let element of numerosArrays) {
+                    console.log(element)
+                    if (element == 5) {
+                        break;
+                    }
+                }
+
+            }
+        </script>
+        </details>
+
+        <h2>Nivel 3</h2>
+        <details>
+        <summary>Exercici 6</summary>
+        <p>for-of amb index: Utilitza un bucle for-of per a imprimir a la consola cada element de l'array i la seva
+            posició
+            (index): let noms = ['Anna', 'Bernat', 'Clara']</p>
+
+        <button onclick="mostrarResultado()"> Mostrar for of index </button>
+
+        <script>
+
+            function mostrarResultado() {
+                let noms1 = ['Anna', 'Bernat', 'Clara']
+                let i = ""
+
+                for (let [index, nom] of noms1.entries()) {
+                    console.log(index, nom);
+                }
+            }
+        </script>
+        </details>
+
+        <h1>Bloc 1.7: Promises & Async/Await</h1>
+
+        <h2>Nivell 1</h2>
+        <details>
+        <summary>Exercici 1</summary>
+        <p>Creació d'una Promesa: Crea una promesa que es resolgui després de 2 segons i que retorni la cadena de text
+            'Hola, món'.</p>
+
+        <button onclick="mostrarResultado()"> Mostrar Promise </button>
+
+        <script>
+
+            function mostrarResultado() {
+                const Saludo = new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        resolve((console.log("Hola mundo")));
+                    }, 2000)
                 })
-                return resultado;
+            }
+        </script>
+        </details>
+
+        <details>
+        <summary>Exercici 2</summary>
+        <p>Utilització d'una Promesa: Utilitza la promesa creada en l'exercici anterior. Crea un .then que imprimeixi el
+            resultat a la consola.</p>
+
+        <button onclick="mostrarResultado()"> Mostrar Promise con then </button>
+
+        <script>
+
+            function mostrarResultado() {
+
+
+                const miPromesa2 = new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        resolve();
+                    }, 2000)
+                })
+
+                miPromesa2.then(() => console.log("Hola, mundo"));
+
+            }
+        </script>
+        </details>
+
+        <details>
+        <summary>Exercici 3</summary>
+        <p>Promesa amb reject: Crea una promesa que es resolgui després de 2 segons si l'input és igual a 'Hola', i que
+            la
+            rebutgi si l'input és qualsevol altra cosa.</p>
+
+        <p>Escribe hola: <input type="text" id="palabra1"></p>
+
+        <button onclick="mostrarResultado()"> Mostrar Promise con reject </button>
+
+        <script>
+
+            function mostrarResultado() {
+
+                let palabraUser = document.getElementById("palabra1").value
+                function saludarPalabra(palabraUser) {
+                    return new Promise((resolve, reject) => {
+                        if (palabraUser == 'hola') {
+                            resolve("Saludo correcto");
+                        } else {
+                            reject("No estas saludando");
+                        }
+                    }, 2000)
+                }
+
+                saludarPalabra(palabraUser).then((message) => {
+                    console.log(message)
+                })
+
+                saludarPalabra(palabraUser).catch(() => {
+                    console.error()
+                })
+
+            }
+        </script>
+        </details>
+        
+        <details>
+        <summary>Exercici 4</summary>
+        <p>Ús de async/await: Escriu una funció asíncrona que utilitzi la funció await per a esperar el resultat de la
+            promesa creada a l'exercici 1, i que després imprimeixi aquest resultat a la consola.</p>
+
+        <button onclick="mostrarResultado()"> Mostrar Promise con reject </button>
+
+        <script>
+
+            function mostrarResultado() {
+                const saludos = new Promise((resolve, reject) => {
+                    console.log("cargando saludo...");
+                    setTimeout(() => {
+                        resolve((console.log("Hola mundo")));
+                    }, 2000)
+                })
+
+                async function getSaludo() {
+                    let miSaludo = await saludos;
+                }
+
+                getSaludo();
+            }
+        </script>
+        </details>
+
+        <h2>Nivel 2</h2>
+        <details>
+        <summary>Exercici 5</summary>
+        <p>Gestió d'errors amb async/await: Modifica la funció de l'exercici 4 per a que capturi qualsevol possible
+            error
+            utilitzant un bloc try/catch.</p>
+
+        <button onclick="mostrarResultado()"> Mostrar Promise con error </button>
+
+        <script>
+
+            function mostrarResultado() {
+                const saludos1 = new Promise((resolve, reject) => {
+                    console.log("cargando saludo...");
+                    setTimeout(() => {
+                        resolve((console.log("Hola mundo")));
+                    }, 2000)
+                })
+
+                async function getSaludo() {
+                    try {
+                        let miSaludo = await saludos1;
+                    } catch (error) {
+                        console.error("Error al saludar", error);
+                    }
+                }
+
+                getSaludo();
             }
 
-            console.log(sumar(1, 2, 3, 4));
-            console.log(sumar(1, 2, 3, 4, 5));
-            console.log(sumar(1, 2, 3, 4, 5, 6));
-            console.log(sumar(1, 2, 3, 4, 5, 6, 7));
-        }
-    </script>
-
-    <h2>Nivel 2</h2>
-    <summary>Exercici 3</summary>
-    <p>Copiant objectes amb Spread: Crea un objecte 'objecte1'. Després crea un segon objecte, 'objecte2', que sigui una
-        còpia de 'objecte1' utilitzant l'operador spread. Canvia una propietat de 'objecte2' i comprova que 'objecte1'
-        no ha canviat.</p>
-
-    <button onclick="mostrarResultado()"> Mostrar Objetos</button>
-
-    <script>
-
-        function mostrarResultado() {
-            let objeto1 = { tipo: "camiseta", talla: "m" }
-            let objeto2 = { ...objeto1 }
-            objeto2.talla = "l"
-
-            console.log(objeto2)
-            console.log(objeto1)
-        }
-    </script>
-
-    <summary>Exercici 4</summary>
-    <p>Rest en Destructuring: Crea una array amb diversos elements. Utilitza destructuring i l'operador rest per a
-        assignar els primers dos elements a variables, i després assignar la resta dels elements a una tercera variable.
-    </p>
-
-    <button onclick="mostrarResultado()"> Mostrar Destructuring</button>
-
-    <script>
-        function mostrarResultado() {
-            let colors = ["red", "blue", "black", "pink"]
-
-            let [firstColor, secondColor, ...extraColor] = colors;
-
-            console.log(firstColor);
-            console.log(secondColor);
-            console.log(extraColor);// muestra los elementos restantes del array
-        }
-    </script>
-
-    <h2>Nivell 3</h2>
-
-    <summary>Exercici 5</summary>
-    <p>Spread en Funcions: Crea una funció que accepti tres arguments. Després, crea una array amb tres elements i crida
-        la funció utilitzant l'operador spread amb aquesta array.</p>
-
-    <button onclick="mostrarResultado()"> Mostrar Spreed funcion</button>
-
-    <script>
-        function mostrarResultado() {
-            let numero1 = [4, 5, 6]
-            const operacion = (a, b, c) => {
-                return a + b + c;
-            };
-
-            console.log(operacion(...numero1));
-        }
-    </script>
-
-    <summary>Exercici 6</summary>
-    <p>Fusionant Objectes amb Spread: Crea dos objectes amb propietats diferents. Utilitza l'operador spread per a
-        fusionar aquests dos objectes en un de nou.</p>
-
-    <button onclick="mostrarResultado()"> Mostrar Spreed Objeto</button>
-
-    <script>
-        function mostrarResultado() {
-            let frutas1 = ["pera", "manzana", "piña"]
-            let vegetales1 = ["brocoli", "apio", "berenjena"]
-
-            const fusion = (...objects) => ({ ...objects });
-
-            let fusionComida = fusion(frutas1, vegetales1)
-
-            console.log(fusionComida)
-        }
-    </script>
-
-    <h1>Bloc 1.5: Rest & Spread operators</h1>
-    <h2>Nivell 1</h2>
-    <summary>Exercici 1</summary>
-    <p>Map: Teniu un array de números [1, 2, 3, 4]. Crea una nova array que contingui el quadrat de cada número.</p>
-
-    <button onclick="mostrarResultado()"> Mostrar Cuadrados </button>
-    <script>
-
-        function mostrarResultado() {
-            const numeroConjunto = [1, 2, 3,4];
-
-            const cuadrados = numeroConjunto.map((num) => Math.sqrt(num));
-
-            console.log(cuadrados);
-        }
-    </script>
-
-
-<summary>Exercici 2</summary>
-<p>Filter: Teniu una array de números [1, 2, 3, 4]. Crea una nova array que només contingui els números parells.</p>
-
-<button onclick="mostrarResultado()"> Mostrar Pares </button>
-
-<script>
-    function mostrarResultado() {
-            const numeroConjunto1 = [1, 2, 3,4];
-
-            const pares = numeroConjunto1.filter(number => number % 2 == 0);
-
-            console.log(pares);
-        }
-</script>
-
-<summary>Exercici 3</summary>
-<p>Find: Teniu una array de números [1, 10 , 8, 11]. Utilitza la funció find per a trobar el primer número que és major a 10.</p>
-
-<button onclick="mostrarResultado()"> Mostrar Find </button>
-
-<script>
-    function mostrarResultado() {
-            const numeroConjunto1 = [1, 10, 8, 11];
-
-            const encontrar = numeroConjunto1.find(element => element > 10);
-
-            console.log(encontrar);
-        }
-</script>
-
-<summary>Exercici 4</summary>
-<p>Reduce: Teniu una array de números [13, 7, 8, 21]. Fes servir la funció reduce per a calcular la suma total dels números.</p>
-
-<button onclick="mostrarResultado()"> Mostrar Reduce </button>
-
-<script>
-    function mostrarResultado() {
-            const numeroConjunto2 = [13, 7, 8, 21];
-
-            const sumaTotal = numeroConjunto2.reduce((total, numero)=> {return total + numero;},0);
-
-            console.log("Suma total: ", sumaTotal);
-        }
-</script>
-
-<h2>Nivell 2</h2>
-<summary>Exercici 5</summary>
-<p>Donat un array "[ 1, 3, 7, 10 ,15, 17, 11, 5, 8, 12, 9 ]", crea una funció en una sola línia que faci el següent: </p>
-<ul>
-    <li>Filtra els nombres majors o iguals a 10.</li>
-    <li>Multiplica cada nombre filtrat per 2.</li>
-    <li>Calcula la suma dels nombres filtrats i multiplicats per 2.</li>
-    <li>La funció ha de retornar el resultat de la suma.</li>
-
-</ul>
-
-<button onclick="mostrarResultado()"> Mostrar Resultado </button>
-<script>
-
-    function mostrarResultado() {
-        const numeroConjunto3 = [1, 3,7,10,15,17,11,5,8,12,9];
-
-        const filtroNum = numeroConjunto3.filter(number => number >= 10);
-
-        const multiplicacion = filtroNum.map((num) => num * 2);
-
-        const totales = multiplicacion.reduce((total, numero)=> {return (total + numero)* 2 ;},0);
-
-        console.log(filtroNum);
-        console.log(multiplicacion);
-        console.log(totales);
-    }    
-</script>
-
-<h2>Nivell 3</h2>
-<summary>Exercici 6</summary>
-<p>Every / Some: Usa every i some per a determinar si tots o alguns dels elements de l'array [11, 12, 13, 14] són majors que 10, respectivament </p>
-<button onclick="mostrarResultado()"> Mostrar Resultado </button>
-
-<script>
-
-    function mostrarResultado() {
-        const conjuntoArray = [11, 12, 13, 14];
-
-        function esMayor(element,index,array){
-            return element > 10;
-        }
-
-        console.log(conjuntoArray.every(esMayor));
-    }  
-</script>
-
-<h1>Bloc 1.6: Array loops</h1>
-<h2>Nivell 1</h2>
-<summary>Exercici 1</summary>
-<p>forEach: Teniu una array de noms. Utilitza forEach per a imprimir cada nom a la consola: let noms = ['Anna', 'Bernat', 'Clara']</p>
-
-<button onclick="mostrarResultado()"> Mostrar forEach </button>
-
-<script>
-    function mostrarResultado(){
-        let noms = ['Anna', 'Bernat', 'Clara'];
-
-        noms.forEach((element)=> console.log(element));
-    }
-
-</script>
-
-<summary>Exercici 2</summary>
-<p>for-of: Teniu una array de noms. Utilitza un bucle for-of per a imprimir cada nom a la consola: let noms = ['Anna', 'Bernat', 'Clara'];</p>
-
-<button onclick="mostrarResultado()"> Mostrar for-of </button>
-
-<script>
-    function mostrarResultado(){
-        let noms = ['Anna', 'Bernat', 'Clara'];
-
-        for(let value of noms){
-            console.log(value)
-        }
-    }
-</script>
-
-<summary>Exercici 3</summary>
-<p>filter: Teniu una array de números. Utilitza filter per a crear una nova array que només contingui els números parells. let numeros = [1, 2, 3, 4, 5, 6];</p>
-
-<button onclick="mostrarResultado()"> Mostrar filter </button>
-
-<script>
-    function mostrarResultado(){
-        let numeros = [1, 2, 3, 4, 5, 6]
-    }
-</script>
-
-<h2>Nivell 2</h2>
-<summary>Exercici 4</summary>
-<p>for-in: Teniu un objecte amb parells clau-valor: let obj = { nom: Ona, edat: 25, ciutat: 'Barcelona' }; Utilitza un bucle for-in per a imprimir a la consola cada clau i el seu valor corresponent.</p>
-
-<button onclick="mostrarResultado()"> Mostrar filter </button>
-
-<script>
-
-    function mostrarResultado(){
-        let obj1 = { nom: "Ona", edat: 25, ciutat: 'Barcelona' }
-
-        for(const property in obj1){console.log(`${property}: ${obj1[property]}`)}
-
-    }
-</script>
-
-<summary>Exercici 5</summary>
-<p>for-of amb break: Teniu una array de números. Utilitza un bucle for-of per a imprimir a la consola els números fins a trobar el número 5, llavors atura el bucle: let numeros = [1, 2, 3, 4, 5, 6];</p>
-
-<button onclick="mostrarResultado()"> Mostrar filter </button>
-
-<script>
-
-    function mostrarResultado(){
-        let numerosArrays = [1, 2, 3, 4, 5, 6]
-
-       for(let  element of numerosArrays ){
-        console.log(element)
-        if(element == 5){
-            break;}
-       }
-
-    }
-</script>
-
-<h2>Nivel 3</h2>
-<summary>Exercici 6</summary>
-<p>for-of amb index: Utilitza un bucle for-of per a imprimir a la consola cada element de l'array i la seva posició (index): let noms = ['Anna', 'Bernat', 'Clara']</p>
-
-<button onclick="mostrarResultado()"> Mostrar for of index </button>
-
-<script>
-
-    function mostrarResultado(){
-        let noms1 = ['Anna', 'Bernat', 'Clara']
-        let i = ""
-
-        for(let [index,nom] of noms1.entries()){
-            console.log(index,nom);
-        }
-    }
-</script>
-
-<h1>Bloc 1.7: Promises & Async/Await</h1>
-
-<h2>Nivell 1</h2>
-<summary>Exercici 1</summary>
-<p>Creació d'una Promesa: Crea una promesa que es resolgui després de 2 segons i que retorni la cadena de text 'Hola, món'.</p>
-
-<button onclick="mostrarResultado()"> Mostrar Promise </button>
-
-<script>
-
-function mostrarResultado(){
-    const Saludo = new Promise((resolve,reject)=>{
-    setTimeout(()=>{
-        resolve((console.log("Hola mundo")));
-    },2000)
-})
-}
-</script>
-
-<summary>Exercici 2</summary>
-<p>Utilització d'una Promesa: Utilitza la promesa creada en l'exercici anterior. Crea un .then que imprimeixi el resultat a la consola.</p>
-
-<button onclick="mostrarResultado()"> Mostrar Promise con then </button>
-
-<script>
-
-function mostrarResultado(){
-
-
-const miPromesa2 = new Promise((resolve,reject)=>{
-    setTimeout(()=>{
-        resolve();
-    },2000)
-})
-
-miPromesa2.then(() => console.log("Hola, mundo"));
-
-}
-</script>
-
-<summary>Exercici 3</summary>
-<p>Promesa amb reject: Crea una promesa que es resolgui després de 2 segons si l'input és igual a 'Hola', i que la rebutgi si l'input és qualsevol altra cosa.</p>
-
-<p>Escribe hola: <input type="text" id="palabra1"></p>
-
-<button onclick="mostrarResultado()"> Mostrar Promise con reject </button>
-
-<script>
-
-function mostrarResultado(){
-
-    let palabraUser = document.getElementById("palabra1").value
-    function saludarPalabra(palabraUser){
-        return new Promise((resolve,reject)=>{
-            if(palabraUser =='hola'){
-                resolve("Saludo correcto");
-            } else {
-                reject("No estas saludando");
+        </script>
+        </details>
+
+        <h2>Nivel 3</h2>
+        <details>
+        <summary>Exercici 6</summary>
+        <p>Promise.all: Crea dues promeses que es resolguin després de 2 i 3 segons, respectivament. Utilitza
+            Promise.all
+            per a esperar que ambdues promeses es resolguin, i imprimeix els resultats a la consola.</p>
+
+        <button onclick="mostrarResultado()"> Mostrar Promise con reject </button>
+
+        <script>
+
+            function mostrarResultado() {
+                let id = 0
+                function getRandom() {
+                    return Math.floor(Math.random() * 1000);
+                }
+
+                function asyncOp(id, tiempo) {
+                    return new Promise((resolve) => {
+                        setTimeout(() => {
+                            resolve(id, tiempo); // le paso los parametros al resolve
+                        }, 2000);
+                    });
+                }
+
+                Promise.all([asyncOp(++id, getRandom()).then((data) => console.log('completado1', data)), asyncOp(++id, getRandom()).then((data) => console.log('completado1', data))]).then(() => console.log("todo completado"));
             }
-        },2000)
-    }
-
-    saludarPalabra(palabraUser).then((message)=> {
-        console.log(message)
-    })
-
-    saludarPalabra(palabraUser).catch(()=> {
-        console.error()
-    })
-
-}
-</script>
-
-<summary>Exercici 4</summary>
-<p>Ús de async/await: Escriu una funció asíncrona que utilitzi la funció await per a esperar el resultat de la promesa creada a l'exercici 1, i que després imprimeixi aquest resultat a la consola.</p>
-
-<button onclick="mostrarResultado()"> Mostrar Promise con reject </button>
-
-<script>
-
-function mostrarResultado(){
-    const saludos = new Promise((resolve,reject)=>{
-        console.log("cargando saludo...");
-    setTimeout(()=>{
-        resolve((console.log("Hola mundo")));
-    },2000)
-})
-
-    async function getSaludo(){
-        let miSaludo = await saludos;
-    }
-
-    getSaludo();
-}
-</script>
-
+        </script>
+        </details>
+    </div>
 </body>
 
 </html>
