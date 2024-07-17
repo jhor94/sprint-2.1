@@ -21,13 +21,13 @@
 
             <p>Introduzca un numero <input id="numero1" type="number"></p>
             <p>Introduzca un numero <input id="numero2" type="number"></p>
-            <button onclick="mostrarResultado()"> Calcula la suma</button>
+            <button onclick="mostrarResultado1()"> Calcula la suma</button>
             <p><span id="respuestaSuma"></span></p>
 
             <script>
                 const add = (a, b) => a + b;
 
-                function mostrarResultado() {
+                function mostrarResultado1() {
 
                     let num1 = document.getElementById("numero1").value
                     let num2 = document.getElementById("numero2").value
@@ -46,14 +46,14 @@
                 paràmetres i
                 que retorni un número aleatori entre 0 i 100.</p>
 
-            <button onclick="mostrarResultado()"> Ver número Random</button>
+            <button onclick="mostrarResultado2()"> Ver número Random</button>
             <p><span id="respuestaRandom"></span></p>
 
             <script>
 
                 let randomNumero = () => (Math.floor(Math.random() * 101)); //funcion flecha se pone *101 para limitar el numero al 100
 
-                function mostrarResultado() {
+                function mostrarResultado2() {
 
                     let resultado = randomNumero();
 
@@ -75,7 +75,7 @@
 
             <p>Introduzca su nombre <input type="text" name="" id="nombreUsuario"></p>
 
-            <button onclick="mostrarResultado()"> Ver resultado</button>
+            <button onclick="mostrarResultado3()"> Ver resultado</button>
             <p><span id="respuestaNombre"></span></p>
 
             <Script>
@@ -91,7 +91,7 @@
                     }
                 }
 
-                function mostrarResultado() {
+                function mostrarResultado3() {
                     let pedirNombre = document.getElementById("nombreUsuario").value
                     let nombrePersona = new Person(pedirNombre)
                     nombrePersona.greet()// para que me imprima el resultado en console.log
@@ -105,7 +105,7 @@
         <p>Funció de fletxa dins d'un loop: Crea una funció anomenada printNumbers que accepti un array de números i
             utilitzi un loop for per imprimir cada número a la consola utilitzant una funció de fletxa.</p>
 
-        <button onclick="mostrarResultado()"> Ver resultado</button>
+        <button onclick="mostrarResultado4()"> Ver resultado</button>
         <p><span id="respuestaNumeros"></span></p>
 
         <Script>
@@ -118,7 +118,7 @@
                 }
             }
 
-            function mostrarResultado() { // creo otra funcion con la array de numeros para hacer referir la funcion priunt y ejecutarlo con boton.
+            function mostrarResultado4() { // creo otra funcion con la array de numeros para hacer referir la funcion priunt y ejecutarlo con boton.
                 let numerosArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
                 let mensaje = printNumbers(numerosArray)
             }
@@ -132,12 +132,12 @@
         <p>Funció de fletxa amb 'setTimeout': Crea una funció de fletxa que imprimeixi un missatge a la consola després
             d'esperar 3 segons.</p>
 
-        <button onclick="mostrarResultado()"> Ver resultado</button>
+        <button onclick="mostrarResultado5()"> Ver resultado</button>
         <p><span id="respuestaNumeros"></span></p>
 
         <Script>
 
-            function mostrarResultado() {
+            function mostrarResultado5() {
                 setTimeout(() => {
                     console.log("Se ha retrasado 3 segundos.")
                 }, 3000);
@@ -184,15 +184,15 @@
         <p>Introduce el numero1 <input type="text" name="" id="num1"></p>
         <p>Introduce el numero2 <input type="text" name="" id="num2"></p>
 
-        <button onclick="mostrarResultado()"> Respuesta</button>
+        <button onclick="mostrarResultado6()"> Respuesta</button>
         <p><span id="respuestaComparacion"></span></p>
 
         <Script>
-            function mostrarResultado() {
+            function mostrarResultado6() {
                 let numero1 = document.getElementById("num1").value
                 let numero2 = document.getElementById("num2").value
 
-                let resultado = numero1 > numero2 ? `${numero1} es mayor que ${numero2} ` : `${num2} es mayor que ${num1} `
+                let resultado = numero1 > numero2 ? `${numero1} es mayor que ${numero2} ` : `${numero2} es mayor que ${numero1} `
 
                 document.getElementById("respuestaComparacion").innerHTML = resultado
             }
@@ -214,7 +214,7 @@
         <p>Introduce el numero 2: <input type="text" id="ternario2"></p>
         <p>Introduce el numero 3: <input type="text" id="ternario3"></p>
 
-        <button onclick="mostrarResultado()"> Respuesta</button>
+        <button onclick="mostrarResultado7()"> Respuesta</button>
         <p><span id="respuestaTernario"></span></p>
 
         <script>
@@ -222,7 +222,7 @@
                 return numero == 0 ? " El numero es igual a 0" : numero > 0 ? " El numero es positivo" : " El numero es negativo"
             }
 
-            function mostrarResultado() {
+            function mostrarResultado7() {
                 let numero1 = Number(document.getElementById("ternario1").value)
                 let numero2 = Number(document.getElementById("ternario2").value)
                 let numero3 = Number(document.getElementById("ternario3").value)
@@ -254,7 +254,7 @@
                 for (let i = 0; i < conjuntoNumeros.length; i++) {
                     let numeroArray = conjuntoNumeros[i];
                     let mensaje = numeroArray % 2 == 0 ? `Es numero par` : `Es numero impar`
-                    console.log(mensaje)
+                    console.log(conjuntoNumeros[i],mensaje)
                 }
             }
         </script>
@@ -293,7 +293,7 @@
             una funció de callback. La funció calculadora ha d'invocar la funció de callback amb els dos nombres com a
             paràmetres. Després, crida calculadora amb una funció que faci la suma dels dos nombres.</p>
 
-        <button onclick="ejecturarCallback()">Ejecutar funcion</button>
+        <button onclick="ejecturarCallback1()">Ejecutar funcion</button>
         <p><span id="resultadoSuma"></span></p>
 
         <script>
@@ -310,7 +310,7 @@
                 callback(numeroSuma1, numeroSuma2);
 
             }
-            function ejecturarCallback() { // pongo esta funcion para que no cargue directamente
+            function ejecturarCallback1() { // pongo esta funcion para que no cargue directamente
                 calculadora(hazSuma);
             }
 
@@ -326,7 +326,7 @@
             nom
             com a paràmetre.</p>
 
-        <button onclick="ejecturarCallback()">Ejecutar funcion</button>
+        <button onclick="ejecturarCallback2()">Ejecutar funcion</button>
         <p><span id="resultadoSuma"></span></p>
 
         <script>
@@ -341,27 +341,28 @@
                 callback(nombreUsuario1);
 
             }
-            function ejecturarCallback() { // pongo esta funcion para que no cargue directamente
+            function ejecturarCallback2() { // pongo esta funcion para que no cargue directamente
                 setTimeout(function () { esperarSaludo(esperarEjecucion) }, 2000);
             }
 
         </script>
         </details>
 
+       <!-- 
         <details>
         <summary>Exercici 4 </summary>
         <p>Callbacks amb arrays: Escriu una funció processarElements que accepti dos paràmetres: un array i una funció
             de
             callback. La funció processarElements ha d'invocar la funció de callback per cada element de l'array.</p>
 
-        <button onclick="ejecturarCallback()">Ejecutar funcion</button>
+        <button onclick="ejecturarCallback3()">Ejecutar funcion</button>
         <p><span id="resultadoSuma"></span></p>
 
         <script>
             //Una función de callback es una función que se pasa a otra función como un argumento, que luego se invoca dentro de la función externa para completar algún tipo de rutina o acción.
 
             function procesarArray(array, callback) {
-                for (let i = 0; i < arrayNumeros.length; i++) {
+                for (let i = 0; i < array.length; i++) {
                     callback(array[i], array)
                 }
             }
@@ -372,16 +373,12 @@
 
             }
 
-            function imprimirElementos() {
-                console.log(`Los elementos en la posicion ${index} es el: ${element}`)
-            }
-
-            function ejecturarCallback() {
-                procesarElements(imprimirElementos);
+            function ejecturarCallback3() {
+                procesarElements();
             }
 
         </script>
-        </details>
+        </details> -->
 
         <h2>Nivell 3</h2>
         <details>
@@ -392,7 +389,7 @@
             la
             cadena transformada.</p>
 
-        <button onclick="ejecturarCallback()">Ejecutar palabra</button>
+        <button onclick="ejecturarCallback4()">Ejecutar palabra</button>
         <p><span id="resultadoPalabra"></span></p>
 
         <script>
@@ -407,7 +404,7 @@
                 let palabraUsuario = prompt("Introduce la palabra");
                 callback(palabraUsuario);
             }
-            function ejecturarCallback() { // pongo esta funcion para que no cargue directamente
+            function ejecturarCallback4() { // pongo esta funcion para que no cargue directamente
                 procesarCadena(cadenaTexto);
             }
         </script>
@@ -441,13 +438,13 @@
         <p>Operador Rest en Funcions: Crea una funció 'suma' que utilitzi l'operador rest per a acceptar un nombre
             indeterminat d'arguments i retornar la seva suma.</p>
 
-        <button onclick="mostrarResultado()"> Mostrar Suma Rest</button>
+        <button onclick="mostrarResultado8()"> Mostrar Suma Rest</button>
 
 
         <script>
             // se utiliza para agregar paramentros dentro de una variable o dentro de una funcion
 
-            function mostrarResultado() {
+            function mostrarResultado8() {
                 function sumar(a, b, ...c) {
                     let resultado = a + b;
 
@@ -474,11 +471,11 @@
             'objecte1'
             no ha canviat.</p>
 
-        <button onclick="mostrarResultado()"> Mostrar Objetos</button>
+        <button onclick="mostrarResultado9()"> Mostrar Objetos</button>
 
         <script>
 
-            function mostrarResultado() {
+            function mostrarResultado9() {
                 let objeto1 = { tipo: "camiseta", talla: "m" }
                 let objeto2 = { ...objeto1 }
                 objeto2.talla = "l"
@@ -496,7 +493,7 @@
             variable.
         </p>
 
-        <button onclick="mostrarResultado()"> Mostrar Destructuring</button>
+        <button onclick="mostrarResultado9()"> Mostrar Destructuring</button>
 
         <script>
             function mostrarResultado() {
@@ -522,7 +519,7 @@
         <button onclick="mostrarResultado()"> Mostrar Spreed funcion</button>
 
         <script>
-            function mostrarResultado() {
+            function mostrarResultado10() {
                 let numero1 = [4, 5, 6]
                 const operacion = (a, b, c) => {
                     return a + b + c;
@@ -539,7 +536,7 @@
         <p>Fusionant Objectes amb Spread: Crea dos objectes amb propietats diferents. Utilitza l'operador spread per a
             fusionar aquests dos objectes en un de nou.</p>
 
-        <button onclick="mostrarResultado()"> Mostrar Spreed Objeto</button>
+        <button onclick="mostrarResultado10()"> Mostrar Spreed Objeto</button>
 
         <script>
             function mostrarResultado() {
@@ -561,10 +558,10 @@
         <summary>Exercici 1</summary>
         <p>Map: Teniu un array de números [1, 2, 3, 4]. Crea una nova array que contingui el quadrat de cada número.</p>
 
-        <button onclick="mostrarResultado()"> Mostrar Cuadrados </button>
+        <button onclick="mostrarResultado11()"> Mostrar Cuadrados </button>
         <script>
 
-            function mostrarResultado() {
+            function mostrarResultado11() {
                 const numeroConjunto = [1, 2, 3, 4];
 
                 const cuadrados = numeroConjunto.map((num) => Math.sqrt(num));
@@ -579,10 +576,10 @@
         <p>Filter: Teniu una array de números [1, 2, 3, 4]. Crea una nova array que només contingui els números parells.
         </p>
 
-        <button onclick="mostrarResultado()"> Mostrar Pares </button>
+        <button onclick="mostrarResultado12()"> Mostrar Pares </button>
 
         <script>
-            function mostrarResultado() {
+            function mostrarResultado12() {
                 const numeroConjunto1 = [1, 2, 3, 4];
 
                 const pares = numeroConjunto1.filter(number => number % 2 == 0);
@@ -598,10 +595,10 @@
             és
             major a 10.</p>
 
-        <button onclick="mostrarResultado()"> Mostrar Find </button>
+        <button onclick="mostrarResultado13()"> Mostrar Find </button>
 
         <script>
-            function mostrarResultado() {
+            function mostrarResultado13() {
                 const numeroConjunto1 = [1, 10, 8, 11];
 
                 const encontrar = numeroConjunto1.find(element => element > 10);
@@ -617,10 +614,10 @@
             dels
             números.</p>
 
-        <button onclick="mostrarResultado()"> Mostrar Reduce </button>
+        <button onclick="mostrarResultado14()"> Mostrar Reduce </button>
 
         <script>
-            function mostrarResultado() {
+            function mostrarResultado14() {
                 const numeroConjunto2 = [13, 7, 8, 21];
 
                 const sumaTotal = numeroConjunto2.reduce((total, numero) => { return total + numero; }, 0);
@@ -644,10 +641,10 @@
 
         </ul>
 
-        <button onclick="mostrarResultado()"> Mostrar Resultado </button>
+        <button onclick="mostrarResultado15()"> Mostrar Resultado </button>
         <script>
 
-            function mostrarResultado() {
+            function mostrarResultado15() {
                 const numeroConjunto3 = [1, 3, 7, 10, 15, 17, 11, 5, 8, 12, 9];
 
                 const filtroNum = numeroConjunto3.filter(number => number >= 10);
@@ -669,11 +666,11 @@
         <p>Every / Some: Usa every i some per a determinar si tots o alguns dels elements de l'array [11, 12, 13, 14]
             són
             majors que 10, respectivament </p>
-        <button onclick="mostrarResultado()"> Mostrar Resultado </button>
+        <button onclick="mostrarResultado16()"> Mostrar Resultado </button>
 
         <script>
 
-            function mostrarResultado() {
+            function mostrarResultado16() {
                 const conjuntoArray = [11, 12, 13, 14];
 
                 function esMayor(element, index, array) {
@@ -692,10 +689,10 @@
         <p>forEach: Teniu una array de noms. Utilitza forEach per a imprimir cada nom a la consola: let noms = ['Anna',
             'Bernat', 'Clara']</p>
 
-        <button onclick="mostrarResultado()"> Mostrar forEach </button>
+        <button onclick="mostrarResultado17()"> Mostrar forEach </button>
 
         <script>
-            function mostrarResultado() {
+            function mostrarResultado17() {
                 let noms = ['Anna', 'Bernat', 'Clara'];
 
                 noms.forEach((element) => console.log(element));
@@ -709,32 +706,15 @@
         <p>for-of: Teniu una array de noms. Utilitza un bucle for-of per a imprimir cada nom a la consola: let noms =
             ['Anna', 'Bernat', 'Clara'];</p>
 
-        <button onclick="mostrarResultado()"> Mostrar for-of </button>
+        <button onclick="mostrarResultado18()"> Mostrar for-of </button>
 
         <script>
-            function mostrarResultado() {
+            function mostrarResultado18() {
                 let noms = ['Anna', 'Bernat', 'Clara'];
 
                 for (let value of noms) {
                     console.log(value)
                 }
-            }
-        </script>
-        </details>
-
-        <details>
-        <summary>Exercici 3</summary>
-        <p>filter: Teniu una array de números. Utilitza filter per a crear una nova array que només contingui els
-            números
-            parells. let numeros = [1, 2, 3, 4, 5, 6];</p>
-
-        <button onclick="mostrarResultado()"> Mostrar filter </button>
-
-        <script>
-            function mostrarResultado() {
-                let numeros = [1, 2, 3, 4, 5, 6]
-
-                ////se repite ejercicio
             }
         </script>
         </details>
@@ -746,11 +726,11 @@
             Utilitza
             un bucle for-in per a imprimir a la consola cada clau i el seu valor corresponent.</p>
 
-        <button onclick="mostrarResultado()"> Mostrar filter </button>
+        <button onclick="mostrarResultado20()"> Mostrar for-in </button>
 
         <script>
 
-            function mostrarResultado() {
+            function mostrarResultado20() {
                 let obj1 = { nom: "Ona", edat: 25, ciutat: 'Barcelona' }
 
                 for (const property in obj1) { console.log(`${property}: ${obj1[property]}`) }
@@ -765,11 +745,11 @@
             números
             fins a trobar el número 5, llavors atura el bucle: let numeros = [1, 2, 3, 4, 5, 6];</p>
 
-        <button onclick="mostrarResultado()"> Mostrar filter </button>
+        <button onclick="mostrarResultado()"> Mostrar for-of </button>
 
         <script>
 
-            function mostrarResultado() {
+            function mostrarResultado20() {
                 let numerosArrays = [1, 2, 3, 4, 5, 6]
 
                 for (let element of numerosArrays) {
@@ -790,11 +770,11 @@
             posició
             (index): let noms = ['Anna', 'Bernat', 'Clara']</p>
 
-        <button onclick="mostrarResultado()"> Mostrar for of index </button>
+        <button onclick="mostrarResultado21()"> Mostrar for of index </button>
 
         <script>
 
-            function mostrarResultado() {
+            function mostrarResultado21() {
                 let noms1 = ['Anna', 'Bernat', 'Clara']
                 let i = ""
 
@@ -813,11 +793,11 @@
         <p>Creació d'una Promesa: Crea una promesa que es resolgui després de 2 segons i que retorni la cadena de text
             'Hola, món'.</p>
 
-        <button onclick="mostrarResultado()"> Mostrar Promise </button>
+        <button onclick="mostrarResultado22()"> Mostrar Promise </button>
 
         <script>
 
-            function mostrarResultado() {
+            function mostrarResultado22() {
                 const Saludo = new Promise((resolve, reject) => {
                     setTimeout(() => {
                         resolve((console.log("Hola mundo")));
@@ -832,11 +812,11 @@
         <p>Utilització d'una Promesa: Utilitza la promesa creada en l'exercici anterior. Crea un .then que imprimeixi el
             resultat a la consola.</p>
 
-        <button onclick="mostrarResultado()"> Mostrar Promise con then </button>
+        <button onclick="mostrarResultado23()"> Mostrar Promise con then </button>
 
         <script>
 
-            function mostrarResultado() {
+            function mostrarResultado23() {
 
 
                 const miPromesa2 = new Promise((resolve, reject) => {
@@ -859,11 +839,11 @@
 
         <p>Escribe hola: <input type="text" id="palabra1"></p>
 
-        <button onclick="mostrarResultado()"> Mostrar Promise con reject </button>
+        <button onclick="mostrarResultado24()"> Mostrar Promise con reject </button>
 
         <script>
 
-            function mostrarResultado() {
+            function mostrarResultado24() {
 
                 let palabraUser = document.getElementById("palabra1").value
                 function saludarPalabra(palabraUser) {
@@ -893,11 +873,11 @@
         <p>Ús de async/await: Escriu una funció asíncrona que utilitzi la funció await per a esperar el resultat de la
             promesa creada a l'exercici 1, i que després imprimeixi aquest resultat a la consola.</p>
 
-        <button onclick="mostrarResultado()"> Mostrar Promise con reject </button>
+        <button onclick="mostrarResultado25()"> Mostrar Promise con reject </button>
 
         <script>
 
-            function mostrarResultado() {
+            function mostrarResultado25() {
                 const saludos = new Promise((resolve, reject) => {
                     console.log("cargando saludo...");
                     setTimeout(() => {
@@ -921,11 +901,11 @@
             error
             utilitzant un bloc try/catch.</p>
 
-        <button onclick="mostrarResultado()"> Mostrar Promise con error </button>
+        <button onclick="mostrarResultado26()"> Mostrar Promise con error </button>
 
         <script>
 
-            function mostrarResultado() {
+            function mostrarResultado26() {
                 const saludos1 = new Promise((resolve, reject) => {
                     console.log("cargando saludo...");
                     setTimeout(() => {
@@ -954,11 +934,11 @@
             Promise.all
             per a esperar que ambdues promeses es resolguin, i imprimeix els resultats a la consola.</p>
 
-        <button onclick="mostrarResultado()"> Mostrar Promise con reject </button>
+        <button onclick="mostrarResultado27()"> Mostrar Promise con reject </button>
 
         <script>
 
-            function mostrarResultado() {
+            function mostrarResultado27() {
                 let id = 0
                 function getRandom() {
                     return Math.floor(Math.random() * 1000);
